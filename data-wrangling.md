@@ -114,3 +114,48 @@ head(mlb11_data, 5)
     ## 5 St. ~   762    5532  1513      162   0.273        978           57    90
     ## # ... with 3 more variables: new_onbase <dbl>, new_slug <dbl>,
     ## #   new_obs <dbl>
+
+## load haven
+
+``` r
+library(haven)
+pulse_data = read_sas("./public_pulse_data.sas7bdat")
+head(pulse_data, 5)
+```
+
+    ## # A tibble: 5 x 7
+    ##      ID   age Sex   BDIScore_BL BDIScore_01m BDIScore_06m BDIScore_12m
+    ##   <dbl> <dbl> <chr>       <dbl>        <dbl>        <dbl>        <dbl>
+    ## 1 10003  48.0 male            7            1            2            0
+    ## 2 10015  72.5 male            6           NA           NA           NA
+    ## 3 10022  58.5 male           14            3            8           NA
+    ## 4 10026  72.7 male           20            6           18           16
+    ## 5 10035  60.4 male            4            0            1            2
+
+``` r
+skimr::skim(pulse_data)
+```
+
+    ## Skim summary statistics
+    ##  n obs: 1087 
+    ##  n variables: 7 
+    ## 
+    ## -- Variable type:character ----------------------------------------------------------------------------------------------
+    ##  variable missing complete    n min max empty n_unique
+    ##       Sex       0     1087 1087   4   6     0        2
+    ## 
+    ## -- Variable type:numeric ------------------------------------------------------------------------------------------------
+    ##      variable missing complete    n     mean      sd        p0      p25
+    ##           age       0     1087 1087    63.87   11.59    25.82     55.96
+    ##  BDIScore_01m     258      829 1087     6.05    6.76     0         1   
+    ##  BDIScore_06m     388      699 1087     5.67    6.46     0         1   
+    ##  BDIScore_12m     233      854 1087     6.1     7.03    -0.014     1   
+    ##   BDIScore_BL       0     1087 1087     7.99    6.92     0         3   
+    ##            ID       0     1087 1087 14827.64 2870.61 10003     12302.5 
+    ##       p50      p75    p100     hist
+    ##     63.83    71.72    95.8 <U+2581><U+2581><U+2583><U+2586><U+2587><U+2585><U+2582><U+2581>
+    ##      4        9       48   <U+2587><U+2582><U+2581><U+2581><U+2581><U+2581><U+2581><U+2581>
+    ##      4        8       49   <U+2587><U+2582><U+2581><U+2581><U+2581><U+2581><U+2581><U+2581>
+    ##      4        9       49   <U+2587><U+2582><U+2581><U+2581><U+2581><U+2581><U+2581><U+2581>
+    ##      6       11       48   <U+2587><U+2585><U+2582><U+2581><U+2581><U+2581><U+2581><U+2581>
+    ##  14755    17234    19983   <U+2587><U+2587><U+2587><U+2587><U+2587><U+2587><U+2586><U+2586>
