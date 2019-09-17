@@ -8,6 +8,19 @@ output: github_document
 
 library (tidyverse)
 
-
 ```
 
+
+## load in dataset
+
+
+```{r}
+## reads in a dataset
+
+litters_data = read_csv(file = "./FAS_litters.csv")
+names(litters_data)
+litters_data = janitor::clean_names(litters_data)
+names(litters_data)
+```
+
+## 
