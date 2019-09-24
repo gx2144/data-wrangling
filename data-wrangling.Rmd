@@ -62,6 +62,10 @@ library(haven)
 pulse_data = read_sas("./public_pulse_data.sas7bdat")
 head(pulse_data, 5)
 skimr::skim(pulse_data)
+write_csv = (mlb11_data_subset, path ="./mlb_subset.csv" )
+```
+
+
 ```
 
 
